@@ -12,25 +12,51 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a style="color:black"class="nav-link" href="#"><i class="fa fa-search"></i>
-            <span class="sr-only">(current)</span></a>
+          <div id="mySearch" class="search">
+            <a href="javascript:void(0)" class="closebn" onclick="closeSearch()">×</a>
+            <div class="input-group">
+              <div class="form-outline">
+                <input type="search" id="form1" placeholder="Search" class="form-control" />
+              </div>
+              <button type="button" style="color:white" class="btn btn-white">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+          <button class="openbn" onclick="openSearch()"><i class="fa fa-search"></i>  </button>  
+
           </li>
       </ul>
     </div>
+    {% if user.is_authenticated %}
     <div class="col-md-4 navbar-center">
       <a style="color:black; margin-left: 30%;"class="nav-link" href="/">LAURELS<span class="sr-only">(current)</span></a>
     </div>
     <div class="col-md-4 navbar-right">
-        <a style="color:black;margin-left: 70%; "class="nav-link" href="#">REGISTER/LOGIN
+        <a style="color:black;margin-left: 70%; "class="nav-link" href="/logout">LOGOUT
           <span class="sr-only">(current)</span></a>
+        {% else %}
+        <a style="color:black;margin-left: 70%; "class="nav-link" href="/accounts/login">LOGIN
+          <span class="sr-only">(current)</span></a>
+
     </div>
+    {% endif %}
   </nav>
   <script>
     function openNav() {
       document.getElementById("mySidepanel").style.width = "250px";
     }
-    
-    function closeNav() {
-      document.getElementById("mySidepanel").style.width = "0";
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
+
+    function openSearch() {
+      document.getElementById("mySearch").style.width = "250px";
     }
+    
+    function closeSearch() {
+      document.getElementById("mySearch").style.width = "0";
+    }
+    
     </script>
