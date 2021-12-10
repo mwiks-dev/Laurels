@@ -5,13 +5,13 @@
     width: 0;
     position: fixed;
     z-index: 1;
-    height: 150px;
+    height: 250px;
     top: 0;
     left: 0;
-    background-color: rgb(233, 24, 24);
+    background-color: rgb(17, 17, 17);
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 20px;
+    padding-top: 60px;
   }
   
   .sidepanel a {
@@ -56,7 +56,7 @@
     background-color: rgb(17, 17, 17);
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 20px;
+    padding-top: 40px;
   }
   
   .search a {
@@ -91,3 +91,15 @@
   .openbn:hover {
     background-color:#444;
   }
+
+#regis{
+  border-style:solid;
+  border-radius: 5%;
+  margin-top:4%;
+}
+#regform{
+  border-style: solid;
+  border-radius: 5%;
+  align-items: center;
+  margin-top: 2%;
+}
