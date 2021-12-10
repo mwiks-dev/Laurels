@@ -35,6 +35,8 @@ class Project(models.Model):
     description = models.TextField(max_length=2000)
     category = models.TextField(max_length=20)
     location = models.TextField(max_length=20)
+    url = models.URLField(max_length=60,null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
 
     def __str__(self):
