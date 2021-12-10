@@ -103,3 +103,6 @@
   align-items: center;
   margin-top: 2%;
 }
+.container-fluid{
+  font-family:'Oswald', sans-serif;
+}
