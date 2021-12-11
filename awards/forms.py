@@ -12,3 +12,13 @@ class PostProjectForm(ModelForm):
                    'location',
                    'url',
         )
+
+class UpdateProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('bio', 'prof_photo','phone_number')
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']

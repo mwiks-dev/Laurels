@@ -1,4 +1,4 @@
-{%extends 'all-awards/base.html'%}
+{%extends 'base.html'%}
 
 {% block content %}
 {{block.super}}
@@ -25,7 +25,7 @@
   </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
       {% for proj in project %}
       <div class="card-group">
         <div class="card">
@@ -33,7 +33,7 @@
           <div class="card-body">
             <h5 class="card-title">{{proj.project_name}}</h5>
             <p class="card-text">{{proj.description}}</p>
-            
+            <p class="card-text"><a href="{{proj.url}}">Project link</a></p>
           </div>
           <div class="card-footer">
             <small class="text-muted">{{proj.pub_date}}</small>
@@ -41,6 +41,7 @@
         </div>
     </div>
     {% endfor %}
+  </div>
   </div>
 </div>
 {% endblock %}
