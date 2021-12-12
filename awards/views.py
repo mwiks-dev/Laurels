@@ -55,7 +55,7 @@ def upload_project(request):
         return redirect('/')
     else:
         form = PostProjectForm()
-    return render(request, 'profile/upload_project.html', {"form": form})
+    return render(request, 'upload_project.html', {"form": form})
 
 def update_profile(request,id):
     user = User.objects.get(id=id)
@@ -76,7 +76,7 @@ def update_profile(request,id):
 def search_results(request):
 
     if 'search' in request.GET and request.GET["search"]:
-        search_term = request.GET.get("search")
+        search_term = request.GET.get("search").lower()
         projects = Project.search_by_project_name(search_term)
         message = f"{search_term}"
 

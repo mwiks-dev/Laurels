@@ -22,26 +22,31 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div>
+  </div><br><br>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
-      {% for proj in project %}
-      <div class="card-group">
-        <div class="card">
-          <img class="card-img-top" src="{{proj.image.url}}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{proj.project_name}}</h5>
-            <p class="card-text">{{proj.description}}</p>
-            <p class="card-text"><a href="{{proj.url}}">Project link</a></p>
+    {% for proj in project %}
+      <div class="col-md-4">
+        <div class="card-group">
+          <div class="card">
+            <div class="card-title">
+              <p class="text-danger text-center">{{user.username}}</p>
+            </div>
+            <img class="card-img-top" src="{{proj.image.url}}" alt="Card image cap">
+            <div class="card__share">
+              <a id="share" class="share-icon" href="{{proj.url}}" target="_blank"><i class="fa fa-share"></i></a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{proj.project_name}}</h5>
+              <p class="card-text">{{proj.description}}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{proj.pub_date}}</small>
+            </div>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">{{proj.pub_date}}</small>
-          </div>
-        </div>
+      </div>
     </div>
     {% endfor %}
-  </div>
   </div>
 </div>
 {% endblock %}
