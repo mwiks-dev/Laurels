@@ -10,6 +10,8 @@ from .serializer import ProfileSerializer,ProjectSerializer
 from rest_framework.views import APIView
 from .permissions import  IsAdminOrReadOnly
 from awards import serializer
+from .email import send_welcome_email
+
 
 
 
@@ -17,7 +19,15 @@ from awards import serializer
 # Create your views here.
 def index(request):
     project = Project.objects.all().order_by('-id')
+    
     return render(request,'index.html',{'project':project})
+
+def email(request):
+    current_user = request.user
+    email = current_user.email
+    name = current_user.username
+    send_welcome_email(name, email)
+    return redirect(create_profile)
 
 @login_required(login_url='/accounts/login/')
 def create_profile(request):

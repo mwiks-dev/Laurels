@@ -12,7 +12,7 @@
                         class="card-img-top" alt="My profile picture">
                     {% endif %}
                     <div class="card-body text-center">
-                        <p>{{ user.username }}</p>
+                        <p>{{profile.user.username }}</p>
                         <p>
                             {% if profile.bio %}
                             <small>{{ profile.bio }}</small>
@@ -34,14 +34,14 @@
                       Edit Profile
                     </a>
                   {% endif %}
-            </div>
+            </div><hr>
                 <div class="col-md-6">
                 <h3 align="center">My Projects</h3>
                 {% for work in project %}
                     <img src="{{ work.image.url }}" class="img-responsive" alt="Image">
                     <p>{{work.description}}</p>
                 {% empty %}
-                <p class="alert alert-danger" style="width:200px;margin-right:5%;"role="alert">No projects !</p>
+                <p class="alert alert-danger" role="alert">No projects !</p>
                 </div>
                 {% endfor %}
         </div>

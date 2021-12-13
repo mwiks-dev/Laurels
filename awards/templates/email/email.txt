@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to Laurels.You will be able to rate/review other people's projects as well as post your own projects for rating.

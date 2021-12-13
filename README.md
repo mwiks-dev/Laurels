@@ -3,7 +3,7 @@
 ## Author 
 [Maryann Mwikali](https://github.com/Maryan23)
 # Description 
-This is an application that has Instagram's minimal features like creating a profile, liking pictures, and commenting on other pictures.1.
+Laurels is a platform that allows project developers to post their projects for rating based on design, usability and content. They are also able to see other  profiles and projects.
 ##  Live Link
 
 ## Screenshots
