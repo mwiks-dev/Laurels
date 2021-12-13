@@ -41,6 +41,7 @@
     color: black;
     padding: 10px 15px;
     border: none;
+    font-family:'Oswald', sans-serif ;
   }
   
   .openbtn:hover {
@@ -98,6 +99,7 @@
 
 .container-fluid{
   font-family:'Oswald', sans-serif;
+  font-size:large;
 }
 .card__share {
   position: relative;
@@ -138,4 +140,6 @@ h1{
   font-family: 'Oswald', sans-serif;
   text-decoration: underline;
 }
-
+.projimg{
+  border-style:groove;
+}

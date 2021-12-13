@@ -11,10 +11,9 @@
   {% else %}
     <title>Welcome to Laurels</title>
   {% endif %}
-    
-
   {% block styles %}
     {% bootstrap_css %}
+    <link rel="shortcut icon" href="{% static 'favicon.ico'%}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

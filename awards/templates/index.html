@@ -5,13 +5,13 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="https://images.unsplash.com/photo-1544194215-541c2d3561a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGlmZSUyMGlzJTIwYmVhdXRpZnVsfGVufDB8fDB8fA%3D%3D&w=1000&q=80"height="550" alt="First slide">
+        <img class="d-block w-100" src="https://media.istockphoto.com/photos/golden-trophy-cup-on-gold-background-copy-space-for-text-3d-rendering-picture-id1296652569?b=1&k=20&m=1296652569&s=170667a&w=0&h=qUHHmJP3H6LgpGF_8G8y_TOpCoWM8ggUe91walBeBkc="height="500" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://images.unsplash.com/photo-1533907650686-70576141c030?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bGlmZSUyMGlzJTIwYmVhdXRpZnVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"height="550" alt="Second slide">
+        <img class="d-block w-100" src="https://media.istockphoto.com/photos/golden-trophy-cup-on-dark-background-copy-space-for-text-3d-rendering-picture-id1296652778?b=1&k=20&m=1296652778&s=170667a&w=0&h=guJnyq9Xw1HUsdjZ7wXiKYhlaCdbRUoDxORkS_kt564="height="500" alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://images.unsplash.com/photo-1556178676-83ce55dc622f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bGlmZSUyMGlzJTIwYmVhdXRpZnVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" height="550"alt="Third slide">
+        <img class="d-block w-100" src="https://images.unsplash.com/photo-1544194215-541c2d3561a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGlmZSUyMGlzJTIwYmVhdXRpZnVsfGVufDB8fDB8fA%3D%3D&w=1000&q=80" height="500"alt="Third slide">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -31,9 +31,10 @@
         <div class="card-group">
           <div class="card">
             <div class="card-title">
-              <p class="text-primary text-center">{{user.username}}</p>
+              <p class="text-warning text-center">{{user.username}}</p>
             </div>
-            <img class="card-img-top" src="{{proj.image.url}}" alt="Card image cap">
+            <a href="{%url 'project' proj.id%}"><img class="card-img-top" src="{{proj.image.url}}" alt="Card image cap">
+            </a>
             <div class="card__share">
               <a id="share" class="share-icon" href="{{proj.url}}" target="_blank"><i class="fa fa-share"></i></a>
             </div>
@@ -42,7 +43,7 @@
               <p class="card-text">{{proj.description}}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">{{proj.pub_date}}</small>
+              <small class="text-muted">Posted {{proj.pub_date |timesince }} ago!</small>
             </div>
           </div>
       </div>

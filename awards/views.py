@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Profile,Project
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -55,7 +55,7 @@ def upload_project(request):
         return redirect('/')
     else:
         form = PostProjectForm()
-    return render(request, 'upload_project.html', {"form": form})
+    return render(request, 'project/upload_project.html', {"form": form})
 
 def update_profile(request,id):
     user = User.objects.get(id=id)
@@ -85,3 +85,8 @@ def search_results(request):
     else:
         message = "You haven't searched for any item!"
         return render(request, 'search.html',{'warning':message})
+
+@login_required(login_url='/accounts/login/')
+def project(request,project_id):
+    project = Project.objects.get(id = project_id)
+    return render(request,"project/project.html", {"project":project})
