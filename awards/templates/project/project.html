@@ -3,7 +3,19 @@
 <br><br><br><br>
  <div class="container-fluid">
   <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3"><br>
+        <h2 align="center"><u>Project Details</u></h2>
+        <div class="card-body text-center">
+          <h5 class="card-title">Project Name: {{project.project_name}}</h5>
+          <p>About: {{ project.description }}</p>
+          <p>Category: {{project.category}}</p>
+          <p>Location: {{project.location}}</p>
+        </div>
+        <div class="card-footer"align="center">
+          <small class="text-muted">By: {{user.username}}</small>
+        </div>
+      </div>
+      <div class="col-md-5">
         {% if project.image %}
               <img src="{{project.image.url}}" alt="" class="card-img-top projimg">
               {% endif %}
@@ -12,17 +24,7 @@
               </div>
       </div>
       <div class="col-md-4">
-        <div class="card-body text-center">
-          <h5 class="card-title">Project Name: {{project.project_name}}</h5>
-          <p>About: {{ project.description }}</p>
-          <p>Category: {{project.category}}</p>
-          <p>Location: {{project.location}}</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">By: {{user.username}}</small>
-        </div>
-      </div>
-      <div class="col-md-4">
+        <h2 align="center"><u>Rate This Project</u></h2>
         <form action="{%url 'rate' project.id %}" method="post">
           {% csrf_token %} 
           <div class="mb-3">
@@ -42,27 +44,31 @@
       </div>
   </div>
 </div>
+<br><br>
 <div class="container-fluid">
   <h2 align="center"><u>This Project's Ratings</u></h2>
-  <div class="col-md-6">
-  {% for rate in rating %}
-  <div class="row">
-    <div class="col-md-3">
-      <p>Voter: {{rate.user.username}}</p>
+  <div id="rates">
+    {% if rating %}
+    <div class="titles">
+        <p class="name"></p>
+        <p class="title">Content</p>
+        <p class="title ">Design</p>
+        <p class="title ">Usability</p>
+        <p class="title ">Average</p>
+
     </div>
-    <div class="col-md-3">
-      <p>Design: {{rate.design_rate}}</p>   
+    {% for rate in rating%}
+    <div class="details">
+        <p class="name">{{rate.user.username}}</p>
+        <p class="content">{{rate.content_rate}}</p>
+        <p class="design">{{rate.design_rate}}</p>
+        <p class="usability">{{rate.usability_rate}}</p>
+        <p class="usability">{{rate.average}}</p>
     </div>
-    <div class="col-md-3">
-      <p>Content: {{rate.content_rate}}</p>
-    </div>
-    <div class="col-md-3">
-      <p>Usability:{{rate.usability_rate}}</p>
-    </div>
-  </div>
-  {% empty %}
-    <p class="alert alert-danger"role="alert">No ratings yet!</p>
-  {% endfor %}
-  </div> 
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-danger">No votes yet</div>
+    {% endif %}
+</div>
 </div>
  {% endblock %}

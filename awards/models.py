@@ -78,7 +78,7 @@ class Rating(models.Model):
     design_rate = models.IntegerField(default=0, blank=True, null=True)
     usability_rate = models.IntegerField(default=0, blank=True, null=True)
     content_rate = models.IntegerField(default=0, blank=True, null=True)
-    avg_rate = models.IntegerField(default=0, blank=True, null=True)
+    average = models.IntegerField(default=0, blank=True, null=True)
 
     def __str__(self):
         return self.user.username

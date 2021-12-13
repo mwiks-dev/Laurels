@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from .models import Profile,Project,Rating
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .forms import PostProjectForm,UpdateProfileForm,ProfileForm
+from .forms import PostProjectForm,UpdateProfileForm,ProfileForm,RateProjectForm
 from django.http import HttpResponseRedirect, Http404
 from .serializer import ProfileSerializer,ProjectSerializer
 from rest_framework.views import APIView
@@ -113,7 +113,7 @@ def rate(request,id):
             design_rate=design_rate,
             usability_rate=usability_rate,
             content_rate=content_rate,
-            avg_rate=round((float(design_rate)+float(usability_rate)+float(content_rate))/3,2))
+            average=round((float(design_rate)+float(usability_rate)+float(content_rate))/3,2))
 
         return render(request,"project/project.html",{"project":project})
     else:

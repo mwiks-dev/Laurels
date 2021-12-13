@@ -142,4 +142,24 @@ h1{
 }
 .projimg{
   border-style:groove;
+  border-color: yellow;
+}
+#rates{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 0 10%;
+  background-color: bisque;
+}
+.details, .titles{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  padding-bottom: 3rem;
+}
+.title{
+  font-size:1.4rem ;
+  margin-right: -4rem;
 }
