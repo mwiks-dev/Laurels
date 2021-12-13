@@ -1,6 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
+from django.db.models.deletion import CASCADE
 
 
 
@@ -33,11 +34,13 @@ class Project(models.Model):
     image = CloudinaryField('image')
     project_name = models.CharField(max_length=50)
     description = models.TextField(max_length=2000)
-    category = models.TextField(max_length=20)
-    location = models.TextField(max_length=20)
+    category = models.CharField(max_length=20)
+    location = models.CharField(max_length=20)
     url = models.URLField(max_length=60,null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
+    # rating = models.ForeignKey(Rating,null=True,on_delete=CASCADE)
+    #avg_rating
 
     def __str__(self):
         return self.project_name
@@ -68,3 +71,16 @@ class Project(models.Model):
 
     class Meta:
         ordering = ['-pub_date']
+
+class Rating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    design_rate = models.IntegerField(default=0, blank=True, null=True)
+    usability_rate = models.IntegerField(default=0, blank=True, null=True)
+    content_rate = models.IntegerField(default=0, blank=True, null=True)
+    avg_rate = models.IntegerField(default=0, blank=True, null=True)
+
+    def __str__(self):
+        return self.user.username
+
+    

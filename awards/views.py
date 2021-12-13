@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import Profile,Project
+from .models import Profile,Project,Rating
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import PostProjectForm,UpdateProfileForm,ProfileForm
@@ -90,3 +90,30 @@ def search_results(request):
 def project(request,project_id):
     project = Project.objects.get(id = project_id)
     return render(request,"project/project.html", {"project":project})
+
+@login_required(login_url='/accounts/login/')
+def rate(request,id):
+    if request.method == 'POST':
+        project = Project.objects.get(id = id)
+        current_user = request.user
+        design_rate = request.POST['design']
+        content_rate = request.POST['content']
+        usability_rate = request.POST['usability']
+
+        Rating.objects.create(
+            project=project,
+            user=current_user,
+            design_rate=design_rate,
+            usability_rate=usability_rate,
+            content_rate=content_rate,
+            avg_rate=round((float(design_rate)+float(usability_rate)+float(content_rate))/3,2),)
+
+        return render(request,"project/project.html",{"project":project})
+    else:
+        project = Project.objects.get(id = id) 
+        return render(request,"project/project.html",{"project":project})
+
+
+
+
+
