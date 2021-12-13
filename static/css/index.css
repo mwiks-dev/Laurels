@@ -8,7 +8,7 @@
     height: 250px;
     top: 0;
     left: 0;
-    background-color: rgb(17, 17, 17);
+    background-color: bisque;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -24,7 +24,7 @@
   }
   
   .sidepanel a:hover {
-    color: #f1f1f1;
+    color:black;
   }
   
   .sidepanel .closebtn {
@@ -44,7 +44,7 @@
   }
   
   .openbtn:hover {
-    background-color:wheat;
+    background-color:bisque;
   }
   .search  {
     width: 0;
@@ -53,7 +53,7 @@
     height: 250px;
     top: 0;
     left: 0;
-    background-color: rgb(17, 17, 17);
+    background-color: bisque;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 50px;
@@ -63,13 +63,13 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: black;
     display: block;
     transition: 0.3s;
   }
   
   .search a:hover {
-    color: #f1f1f1;
+    color: black;
   }
   
   .search .closebn {
@@ -77,6 +77,7 @@
     top: 0;
     right: 25px;
     font-size: 36px;
+    color:black;
   }
   
   .openbn {
@@ -91,18 +92,10 @@
   .openbn:hover {
     background-color:wheat;
   }
+  .closebn:hover{
+    color:black;
+  }
 
-#regis{
-  border-style:solid;
-  border-radius: 5%;
-  margin-top:4%;
-}
-#regform{
-  border-style: solid;
-  border-radius: 5%;
-  align-items: center;
-  margin-top: 2%;
-}
 .container-fluid{
   font-family:'Oswald', sans-serif;
 }
@@ -139,3 +132,10 @@
   -o-transform: scale(1.2);
   transform: scale(1.2);
 }
+h1{
+  color:black;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  text-decoration: underline;
+}
+
