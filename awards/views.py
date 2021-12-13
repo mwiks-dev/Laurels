@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect, Http404
 from .serializer import ProfileSerializer,ProjectSerializer
 from rest_framework.views import APIView
 from .permissions import  IsAdminOrReadOnly
+from awards import serializer
 
 
 
@@ -94,7 +95,8 @@ def search_results(request):
 @login_required(login_url='/accounts/login/')
 def project(request,project_id):
     project = Project.objects.get(id = project_id)
-    return render(request,"project/project.html", {"project":project})
+    rating = Rating.objects.filter(project = project)
+    return render(request,"project/project.html", {"project":project,"rating":rating})
 
 @login_required(login_url='/accounts/login/')
 def rate(request,id):
@@ -111,7 +113,7 @@ def rate(request,id):
             design_rate=design_rate,
             usability_rate=usability_rate,
             content_rate=content_rate,
-            avg_rate=round((float(design_rate)+float(usability_rate)+float(content_rate))/3,2),)
+            avg_rate=round((float(design_rate)+float(usability_rate)+float(content_rate))/3,2))
 
         return render(request,"project/project.html",{"project":project})
     else:
@@ -123,6 +125,13 @@ class ProjectList(APIView):
     def get(self,request,format=None):
         projects = Project.objects.all()
         serializer = ProjectSerializer(projects,many=True)
+        return Response(serializer.data)
+
+class ProfileList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+    def get(self,request,format=None):
+        profiles = Profile.objects.all()
+        serializer = ProfileSerializer(profiles,many=True)
         return Response(serializer.data)
 
 

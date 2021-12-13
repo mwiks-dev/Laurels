@@ -43,7 +43,8 @@
               <p class="card-text">{{proj.description}}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Posted {{proj.pub_date |timesince }} ago!</small>
+              <small class="text-muted">Posted {{proj.pub_date |timesince }} ago!</small><br>
+              <button class="btn btn-warning btn-sm"><a style="color:black" href="{%url 'project' proj.id%}">Rate Project</a></button>
             </div>
           </div>
       </div>
