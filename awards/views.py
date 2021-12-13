@@ -1,9 +1,14 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from rest_framework import serializers
+from rest_framework.response import Response
 from .models import Profile,Project,Rating
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import PostProjectForm,UpdateProfileForm,ProfileForm
 from django.http import HttpResponseRedirect, Http404
+from .serializer import ProfileSerializer,ProjectSerializer
+from rest_framework.views import APIView
+from .permissions import  IsAdminOrReadOnly
 
 
 
@@ -113,7 +118,12 @@ def rate(request,id):
         project = Project.objects.get(id = id) 
         return render(request,"project/project.html",{"project":project})
 
-
+class ProjectList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+    def get(self,request,format=None):
+        projects = Project.objects.all()
+        serializer = ProjectSerializer(projects,many=True)
+        return Response(serializer.data)
 
 
 

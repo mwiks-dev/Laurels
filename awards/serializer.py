@@ -1,5 +1,5 @@
-from .models import Profile,Project
 from rest_framework import serializers
+from .models import Profile,Project
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,4 +9,4 @@ class ProfileSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model=Project
-        fields = ('')
+        fields = ('image','project_name','description','category','location','url')
