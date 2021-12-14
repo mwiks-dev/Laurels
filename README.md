@@ -5,9 +5,12 @@
 # Description 
 Laurels is a platform that allows project developers to post their projects for rating based on design, usability and content. They are also able to see other  profiles and projects.
 ##  Live Link
+https://laurels.herokuapp.com/
 
 ## Screenshots
-
+<img src="static/images/Screenshot from 2021-12-14 14-07-22.png">
+<img src="static/images/Screenshot from 2021-12-14 14-07-30.png">
+<img src="static/images/Screenshot from 2021-12-14 14-08-05.png">
 
 ## User Story 
 1. View posted projects and their details
