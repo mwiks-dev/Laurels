@@ -85,8 +85,7 @@ def update_profile(request,id):
                 profile.save()
                 return redirect('profile') 
             
-    ctx = {"form":form}
-    return render(request, 'profile/update_profile.html', ctx)
+    return render(request, 'profile/update_profile.html', {"form":form})
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):
