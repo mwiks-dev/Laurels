@@ -103,6 +103,8 @@ cloudinary.config(
     api_secret=config('CD_SECRET'),
     secure = config('CD_SECURE')
 )
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
