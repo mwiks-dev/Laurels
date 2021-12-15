@@ -21,9 +21,6 @@ class Profile(models.Model):
     def update_profile(self):
         self.save()
 
-    def delete_profile(self):
-        self.delete()
-
     @classmethod
     def get_profile_by_user(cls, user):
         profile = cls.objects.filter(user=user)
@@ -75,8 +72,8 @@ class Project(models.Model):
         ordering = ['-pub_date']
 
 class Rating(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE,null=True)
     design_rate = models.IntegerField(default=0, blank=True, null=True)
     usability_rate = models.IntegerField(default=0, blank=True, null=True)
     content_rate = models.IntegerField(default=0, blank=True, null=True)
@@ -85,15 +82,15 @@ class Rating(models.Model):
     def __str__(self):
         return self.user.username
 
-    def save_ratw(self):
+    def save_rate(self):
         self.save()
 
     def delete_rate(self):
         self.delete()
 
     @classmethod
-    def get_project_rates(cls, project):
-        return cls.objects.filter(project = project)
+    def get_project_rates(cls):
+        return cls.objects.get_or_create()
 
     
 
