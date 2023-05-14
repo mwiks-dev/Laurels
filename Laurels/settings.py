@@ -91,7 +91,6 @@ DATABASES = {
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD':config('DB_PASSWORD'),
-        'HOST':config('DB_HOST'),
     }
 }
 
@@ -101,7 +100,6 @@ cloudinary.config(
     cloud_name = config('CD_NAME'),
     api_key= config('CD_API'),
     api_secret=config('CD_SECRET'),
-    secure = config('CD_SECURE')
 )
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
@@ -165,8 +163,8 @@ REST_FRAMEWORK = {
     ]
 }
 # Email configurations remember to install python-decouple
-EMAIL_USE_TLS = config('EMAIL_USE_TLS')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT')
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
